@@ -1398,8 +1398,10 @@
 
         if ($(this).hasClass('bs-select-all')) {
           that.selectAll();
+          that.$element.trigger('selectall.bs.select');
         } else {
           that.deselectAll();
+          that.$element.trigger('deselectall.bs.select');
         }
       });
 

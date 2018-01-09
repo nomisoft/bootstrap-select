@@ -1,7 +1,7 @@
 /*!
  * Bootstrap-select v1.12.4 (https://silviomoreto.github.io/bootstrap-select)
  *
- * Copyright 2013-2017 bootstrap-select
+ * Copyright 2013-2018 bootstrap-select
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
 
@@ -522,7 +522,7 @@
           : '';
       var drop =
           '<div class="btn-group bootstrap-select' + showTick + inputGroup + '">' +
-          '<button type="button" class="' + this.options.styleBase + ' dropdown-toggle" data-toggle="dropdown"' + autofocus + ' role="button">' +
+          '<button type="button" class="' + this.options.styleBase + ' dropdown-toggle" data-toggle="dropdown"' + autofocus + ' role="button" aria-labelledby="'+this.$element.attr("aria-labelledby")+'">' +
           '<span class="filter-option pull-left"></span>&nbsp;' +
           '<span class="bs-caret">' +
           this.options.template.caret +
@@ -1421,8 +1421,10 @@
 
         if ($(this).hasClass('bs-select-all')) {
           that.selectAll();
+          that.$element.trigger('selectall.bs.select');
         } else {
           that.deselectAll();
+          that.$element.trigger('deselectall.bs.select');
         }
       });
 
